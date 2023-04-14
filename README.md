@@ -14,12 +14,6 @@ Projeto criado com o intuito de aplicar meus conhecimentos enquanto estudo Angul
   - Habilitar edição do título da tarefa pela janela de *detalhes*;
   - Janela de Tarefas Completas;
   - Janela de Configurações:
-<<<<<<< HEAD
-     Temas
-     Cores
-     Fonte
-=======
-    1. Temas
-    1. Cores
-    1. Fonte
->>>>>>> deb5f5f8aee7280b63104b015dd5335aa7ed69cf
+     > Temas
+     > Cores
+     > Fonte
