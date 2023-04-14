@@ -15,5 +15,5 @@ Projeto criado com o intuito de aplicar meus conhecimentos enquanto estudo Angul
   - Janela de Tarefas Completas;
   - Janela de Configurações:
     1. Temas
-    2. Cores
-    3. Fonte
+    1. Cores
+    1. Fonte
