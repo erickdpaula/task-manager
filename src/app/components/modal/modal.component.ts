@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TarefaModel } from 'src/app/models/TarefaModel';
+import { TaskModel } from 'src/app/models/TaskModel';
 
 @Component({
   selector: 'app-modal',
@@ -7,13 +7,11 @@ import { TarefaModel } from 'src/app/models/TarefaModel';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
+  task: TaskModel
 
   @Input() showModal: boolean = false
 
-  closeModal: boolean = false
   @Output() closeModalEvent = new EventEmitter<boolean>();
-
-  tarefa: TarefaModel
 
   closeModalRequest(){
     this.closeModalEvent.emit(!this.showModal)

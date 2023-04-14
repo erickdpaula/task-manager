@@ -1,4 +1,4 @@
-export class TarefaModel {
+export class TaskModel {
   id:number
   content:string
   completed:boolean

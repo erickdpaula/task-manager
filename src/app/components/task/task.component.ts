@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TarefaModel } from 'src/app/models/TarefaModel';
+import { TaskModel } from 'src/app/models/TaskModel';
 import { faTrash, faCheck, faSquarePlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
@@ -16,7 +16,7 @@ export class TaskComponent {
   showModal: boolean = false
 
   content:string = ''
-  tarefas:TarefaModel[] = [
+  taskList:TaskModel[] = [
     {
       id: 0,
       content: "Estudar Angular",
@@ -49,27 +49,28 @@ export class TaskComponent {
     },
   ]
 
-  adicionarTarefa(){
-    let novaTarefa = new TarefaModel()
-    novaTarefa.id = this.tarefas.length
-    novaTarefa.content = this.content
-    novaTarefa.completed = false
-    novaTarefa.deleted = false
-    this.tarefas.push(novaTarefa)
+  addTask(){
+    let newTask = new TaskModel()
+    newTask.id = this.taskList.length
+    newTask.content = this.content
+    newTask.completed = false
+    newTask.deleted = false
+    this.taskList.push(newTask)
 
     this.content = ''
   }
 
-  removerTarefa(i:number){
-    this.tarefas[i].deleted = !this.tarefas[i].deleted
+  removeTask(i:number){
+    this.taskList[i].deleted = !this.taskList[i].deleted
     setTimeout(() => {
-      this.tarefas.splice(i, 1)
-    }, 900)
+      this.taskList.splice(i, 1)
+    }, 500)
   }
 
 
   isCompleted(i:number){
-    this.tarefas[i].completed = !this.tarefas[i].completed
+    this.taskList[i].completed = !this.taskList[i].completed
+    this.removeTask(i)
   }
 
   openModal(){

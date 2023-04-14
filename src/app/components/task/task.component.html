@@ -1,18 +1,18 @@
 <div class="container">
   <div class="input-container">
     <input class="input-text" name="content" [(ngModel)]="content">
-    <button class="input-button" (click)="adicionarTarefa()"><fa-icon [icon]="faPlus"></fa-icon></button>
+    <button class="input-button" (click)="addTask()"><fa-icon [icon]="faPlus"></fa-icon></button>
   </div>
 
   <div class="tasks-container">
 
-    <div class="task" [ngClass]="{'completed': tarefa.completed, 'deleted': tarefa.deleted}" *ngFor="let tarefa of tarefas, let i = index">
+    <div class="task" [ngClass]="{'completed': task.completed, 'deleted': task.deleted}" *ngFor="let task of taskList, let i = index">
 
-      <fa-icon class="check" (click)="isCompleted(i)" [ngClass]="{'completed': tarefa.completed}" [icon]="faCheck">{{tarefa.content}}</fa-icon>
-      <span>{{tarefa.content}}</span>
+      <fa-icon class="check" (click)="isCompleted(i)" [ngClass]="{'completed': task.completed}" [icon]="faCheck">{{task.content}}</fa-icon>
+      <span>{{task.content}}</span>
       <div>
         <fa-icon (click) = "openModal()" [icon] = "faInfo"></fa-icon>
-        <fa-icon (click) = "removerTarefa(i)" [icon] = "faTrash" ></fa-icon>
+        <fa-icon (click) = "removeTask(i)" [icon] = "faTrash" ></fa-icon>
       </div>
 
     </div>
