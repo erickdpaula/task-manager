@@ -1,0 +1,38 @@
+.container{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container{
+  width: 95%;
+  background: white;
+  outline: 5px solid var(--darker-blue);
+  border-radius: 10px;
+}
+
+header{
+  width: 100%;
+  height: 40px;
+  background: var(--pink);
+}
+
+.subtasks{
+  width: 100%;
+  height: 300px;
+  padding: 20px;
+
+}
+
+footer{
+  width: 100%;
+  height: 30px;
+  background: var(--green);
+}

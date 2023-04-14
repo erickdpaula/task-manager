@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --blue: #C3E4FF;
+    --dark-blue: #7697B3;
+    --darker-blue: #3e5e7a;
+    --green: #DFFFD8;
+    --pink: #F7BFCC;
+    --grey: #666;
+}
+
+body{
+    background: #313131;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+
+    font-family: 'Concert One', sans-serif;
+}
