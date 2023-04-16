@@ -11,7 +11,7 @@
       <fa-icon class="check" (click)="isCompleted(i)" [ngClass]="{'completed': task.completed}" [icon]="faCheck">{{task.content}}</fa-icon>
       <span>{{task.content}}</span>
       <div>
-        <fa-icon (click) = "openModal(task.content)" [icon] = "faInfo"></fa-icon>
+        <fa-icon (click) = "openModal(task)" [icon] = "faInfo"></fa-icon>
         <fa-icon (click) = "removeTask(i)" [icon] = "faTrash" ></fa-icon>
       </div>
 
@@ -19,7 +19,7 @@
 
   </div>
 
-  <app-modal [taskModal]="taskInfo" [showModal] = "showModal" (closeModalEvent) = "closeModal($event)"></app-modal>
+  <app-modal [taskInfo]="taskInfo" [showModal] = "showModal" (closeModalEvent) = "closeModal($event)"></app-modal>
   <app-navigation></app-navigation>
 
 </div>

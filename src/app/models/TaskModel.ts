@@ -3,4 +3,5 @@ export class TaskModel {
   content:string
   completed:boolean
   deleted: boolean
+  subTasks: string[]
 }

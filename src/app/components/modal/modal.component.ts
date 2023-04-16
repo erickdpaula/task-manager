@@ -7,10 +7,10 @@ import { TaskModel } from 'src/app/models/TaskModel';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
-  task: TaskModel
 
   @Input() showModal: boolean = false
-  @Input() taskModal: string
+  @Input() taskInfo: TaskModel
+  subTasks: string[]
 
   @Output() closeModalEvent = new EventEmitter<boolean>();
 

@@ -14,7 +14,7 @@ export class TaskComponent {
   faPlus = faSquarePlus
   faInfo = faInfoCircle
   showModal: boolean = false
-  taskInfo: string
+  taskInfo: TaskModel
 
   content:string = ''
   taskList:TaskModel[] = [
@@ -22,31 +22,36 @@ export class TaskComponent {
       id: 0,
       content: "Estudar Angular",
       completed: false,
-      deleted: false
+      deleted: false,
+      subTasks: []
     },
     {
       id: 1,
       content: "Criar API Tarefas",
       completed: false,
-      deleted: false
+      deleted: false,
+      subTasks: []
     },
     {
       id: 2,
       content: "Implementar API Tarefas",
       completed: false,
-      deleted: false
+      deleted: false,
+      subTasks: []
     },
     {
       id: 3,
       content: "Criar banco de dados",
       completed: false,
-      deleted: false
+      deleted: false,
+      subTasks: []
     },
     {
       id: 4,
       content: "Adicionar Projeto TaskManager no Portifolio",
       completed: false,
-      deleted: false
+      deleted: false,
+      subTasks: []
     },
   ]
 
@@ -74,9 +79,9 @@ export class TaskComponent {
     this.removeTask(i)
   }
 
-  openModal(content: string){
+  openModal(task: TaskModel){
     this.showModal = !this.showModal
-    this.taskInfo = content
+    this.taskInfo = task
   }
 
   closeModal($event:any){
