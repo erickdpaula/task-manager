@@ -14,6 +14,7 @@ export class TaskComponent {
   faPlus = faSquarePlus
   faInfo = faInfoCircle
   showModal: boolean = false
+  taskInfo: string
 
   content:string = ''
   taskList:TaskModel[] = [
@@ -73,8 +74,9 @@ export class TaskComponent {
     this.removeTask(i)
   }
 
-  openModal(){
+  openModal(content: string){
     this.showModal = !this.showModal
+    this.taskInfo = content
   }
 
   closeModal($event:any){

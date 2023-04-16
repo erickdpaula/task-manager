@@ -10,6 +10,7 @@ export class ModalComponent {
   task: TaskModel
 
   @Input() showModal: boolean = false
+  @Input() taskModal: string
 
   @Output() closeModalEvent = new EventEmitter<boolean>();
 
