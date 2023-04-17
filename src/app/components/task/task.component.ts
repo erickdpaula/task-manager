@@ -44,7 +44,14 @@ export class TaskComponent {
       content: "Criar banco de dados",
       completed: false,
       deleted: false,
-      subTasks: []
+      subTasks: [{
+        content: "Iniciar servidor",
+        completed: false
+      },
+      {
+        content: "criar tabela",
+        completed: false
+      }]
     },
     {
       id: 4,

@@ -103,12 +103,6 @@ input[type=checkbox]:checked{
 .deleted{
   animation: 1s slideOut ease-out;
 }
-
-fa-icon{
-  color: var(--dark-blue);
-  cursor: pointer;
-  margin: 0 5px;
-}
 .check{
   color: #ddd;
   font-size: 15px;
@@ -120,4 +114,7 @@ fa-icon{
 }
 span{
   margin-right: auto;
+}
+fa-icon{
+  margin: 0 5px;
 }

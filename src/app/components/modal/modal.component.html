@@ -1,10 +1,19 @@
-<div class="container" *ngIf="showModal" (click)="closeModalRequest()">
+<div class="container" *ngIf="showModal">
   <div class="modal-container">
+
     <header>
       <span class="task-title">{{taskInfo.content}}</span>
+      <fa-icon [icon]="faClose" (click)="closeModalRequest()"></fa-icon>
     </header>
-    <div class="subtasks">
+
+    <div class="info">
+      <p>Subtarefas</p>
+      <div class="subtask" *ngFor="let subTask of taskInfo.subTasks, let i = index">
+        <fa-icon class="checkbox" [icon]="faCheck" (click)="isCompleted(i)" [ngClass]="{'checked': subTask.completed}"></fa-icon>
+        {{subTask.content}}
+      </div>
     </div>
+
     <footer></footer>
   </div>
 </div>

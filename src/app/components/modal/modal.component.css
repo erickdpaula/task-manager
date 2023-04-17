@@ -12,23 +12,49 @@
 }
 
 .modal-container{
-  width: 95%;
+  width: 80%;
   background: white;
   outline: 5px solid var(--darker-blue);
   border-radius: 10px;
+  color: var(--grey);
 }
 
 header{
   width: 100%;
-  height: 40px;
   background: var(--pink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
 }
 
-.subtasks{
+.info{
   width: 100%;
   height: 300px;
-  padding: 20px;
-
+  padding: 10px;
+}
+.info p {
+  text-decoration: underline;
+}
+.subtask{
+  margin: 5px 0;
+}
+.checkbox{
+  width: 10px;
+  height: 10px;
+  padding: 0 2px;
+  color: white;
+  background: white;
+  border-radius: 5px;
+  outline: 2px solid var(--grey);
+  margin: 0 10px;
+}
+.checkbox.checked{
+  color: limegreen;
+}
+.info li{
+  list-style: none;
 }
 
 footer{
