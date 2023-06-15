@@ -15,51 +15,66 @@ export class TaskComponent {
   faInfo = faInfoCircle
   showModal: boolean = false
   taskInfo: TaskModel
+  date: Date = new Date()
+  currentDate: string = this.date.toLocaleDateString()
 
   content:string = ''
+
+  //Tarefas de teste
   taskList:TaskModel[] = [
     {
       id: 0,
       content: "Estudar Angular",
       completed: false,
       deleted: false,
-      subTasks: []
+      subTasks: [
+        {
+          content: "Javascript Basico",
+          completed: false
+        },
+        {
+          content: "Diretivas Angular",
+          completed: false
+        }
+      ],
+      startDate: '26/04/2023',
+      endDate: ''
     },
-    {
-      id: 1,
-      content: "Criar API Tarefas",
-      completed: false,
-      deleted: false,
-      subTasks: []
-    },
-    {
-      id: 2,
-      content: "Implementar API Tarefas",
-      completed: false,
-      deleted: false,
-      subTasks: []
-    },
-    {
-      id: 3,
-      content: "Criar banco de dados",
-      completed: false,
-      deleted: false,
-      subTasks: [{
-        content: "Iniciar servidor",
-        completed: false
-      },
-      {
-        content: "criar tabela",
-        completed: false
-      }]
-    },
-    {
-      id: 4,
-      content: "Adicionar Projeto TaskManager no Portifolio",
-      completed: false,
-      deleted: false,
-      subTasks: []
-    },
+    // {
+    //   id: 1,
+    //   content: "Criar API Tarefas",
+    //   completed: false,
+    //   deleted: false,
+    //   subTasks: []
+    // },
+    // {
+    //   id: 2,
+    //   content: "Implementar API Tarefas",
+    //   completed: false,
+    //   deleted: false,
+    //   subTasks: []
+    // },
+    // {
+    //   id: 3,
+    //   content: "Criar banco de dados",
+    //   completed: false,
+    //   deleted: false,
+    //   subTasks: [{
+    //     content: "Iniciar servidor",
+    //     completed: false
+    //   },
+    //   {
+    //     content: "criar tabela",
+    //     completed: false
+    //   }]
+    // },
+    // {
+    //   id: 4,
+    //   content: "Adicionar Projeto TaskManager no Portifolio",
+    //   completed: false,
+    //   deleted: false,
+    //   subTasks: []
+    // },
   ]
 
   addTask(){
@@ -68,6 +83,7 @@ export class TaskComponent {
     newTask.content = this.content
     newTask.completed = false
     newTask.deleted = false
+    newTask.startDate = this.currentDate
     this.taskList.push(newTask)
 
     this.content = ''

@@ -6,12 +6,17 @@
       <fa-icon [icon]="faClose" (click)="closeModalRequest()"></fa-icon>
     </header>
 
-    <div class="info">
+    <div class="subtasks-container">
       <p>Subtarefas</p>
-      <div class="subtask" *ngFor="let subTask of taskInfo.subTasks, let i = index">
+      <div class="subtasks" *ngFor="let subTask of taskInfo.subTasks, let i = index">
         <fa-icon class="checkbox" [icon]="faCheck" (click)="isCompleted(i)" [ngClass]="{'checked': subTask.completed}"></fa-icon>
         {{subTask.content}}
       </div>
+    </div>
+
+    <div class="info-container">
+      <p>Adicionado em: {{taskInfo.startDate}}</p>
+      <p>Termino previsto: {{taskInfo.endDate}}</p>
     </div>
 
     <footer></footer>
