@@ -28,6 +28,18 @@ header{
   padding: 10px;
   font-size: 20px;
 }
+.task-title{
+  color: var(--grey);
+  background: none;
+  border: none;
+  margin-right: auto;
+}
+.task-title:focus{
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.425);
+  border-radius: 6px;
+  border: 2px solid var(--grey);
+}
 
 .subtasks-container{
   width: 100%;
