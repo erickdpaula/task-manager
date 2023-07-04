@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TaskModel } from 'src/app/models/TaskModel';
+import { Task } from 'src/app/models/Task';
 import { faXmarkCircle, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
@@ -12,7 +12,7 @@ export class ModalComponent {
   faCheck = faCheck
 
   @Input() showModal: boolean = false
-  @Input() taskInfo: TaskModel
+  @Input() taskInfo: Task
   @Output() closeModalEvent = new EventEmitter<boolean>();
 
   closeModalRequest(){

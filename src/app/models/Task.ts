@@ -1,5 +1,5 @@
 import { SubTaskModel } from './SubTaskModel';
-export class TaskModel {
+export class Task {
   id:number
   content:string
   completed:boolean

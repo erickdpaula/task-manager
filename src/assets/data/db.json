@@ -1,0 +1,31 @@
+{
+  "tasks": [
+    {
+      "id": 0,
+      "content": "Estudar Angular",
+      "completed": false,
+      "deleted": false,
+      "subTasks": [
+        {
+          "content": "Javascript Basico",
+          "completed": false
+        },
+        {
+          "content": "Diretivas Angular",
+          "completed": false
+        }
+      ],
+      "startDate": "26/04/2023",
+      "endDate": ""
+    },
+    {
+      "id": 1,
+      "content": "Teste",
+      "completed": false,
+      "deleted": false,
+      "subTasks": [],
+      "startDate": "03/07/2023",
+      "endDate": ""
+    }
+  ]
+}

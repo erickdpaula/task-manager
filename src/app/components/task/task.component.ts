@@ -1,90 +1,58 @@
-import { Component } from '@angular/core';
-import { TaskModel } from 'src/app/models/TaskModel';
+
+import { Component, OnInit } from '@angular/core';
+import { Task } from 'src/app/models/Task';
 import { faTrash, faCheck, faSquarePlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { TaskService } from 'src/app/services/task.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css']
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit{
 
   faTrash = faTrash
   faCheck = faCheck
   faPlus = faSquarePlus
   faInfo = faInfoCircle
   showModal: boolean = false
-  taskInfo: TaskModel
+  taskInfo: Task
   date: Date = new Date()
   currentDate: string = this.date.toLocaleDateString()
 
   content:string = ''
 
-  //Tarefas de teste
-  taskList:TaskModel[] = [
-    {
-      id: 0,
-      content: "Estudar Angular",
-      completed: false,
-      deleted: false,
-      subTasks: [
-        {
-          content: "Javascript Basico",
-          completed: false
-        },
-        {
-          content: "Diretivas Angular",
-          completed: false
-        }
-      ],
-      startDate: '26/04/2023',
-      endDate: ''
-    },
-    // {
-    //   id: 1,
-    //   content: "Criar API Tarefas",
-    //   completed: false,
-    //   deleted: false,
-    //   subTasks: []
-    // },
-    // {
-    //   id: 2,
-    //   content: "Implementar API Tarefas",
-    //   completed: false,
-    //   deleted: false,
-    //   subTasks: []
-    // },
-    // {
-    //   id: 3,
-    //   content: "Criar banco de dados",
-    //   completed: false,
-    //   deleted: false,
-    //   subTasks: [{
-    //     content: "Iniciar servidor",
-    //     completed: false
-    //   },
-    //   {
-    //     content: "criar tabela",
-    //     completed: false
-    //   }]
-    // },
-    // {
-    //   id: 4,
-    //   content: "Adicionar Projeto TaskManager no Portifolio",
-    //   completed: false,
-    //   deleted: false,
-    //   subTasks: []
-    // },
-  ]
+  taskList:Task[]
+  task = {} as Task
+
+  constructor(private taskService: TaskService){}
+
+  ngOnInit() {
+    this.getAllTasks()
+  }
+
+  getAllTasks(){
+    this.taskService.getAllTasks().subscribe((tasks: Task[]) => {
+      this.taskList = tasks
+    })
+  }
+  saveTask(task: Task) {
+    this.taskService.saveTask(task)
+    console.log(task)
+  }
 
   addTask(){
-    let newTask = new TaskModel()
+    let newTask = new Task()
     newTask.id = this.taskList.length
     newTask.content = this.content
     newTask.completed = false
     newTask.deleted = false
+    newTask.subTasks = []
     newTask.startDate = this.currentDate
-    this.taskList.push(newTask)
+    newTask.endDate = ""
+    this.saveTask(newTask)
+    // this.taskList.push(newTask)
 
     this.content = ''
   }
@@ -102,7 +70,7 @@ export class TaskComponent {
     this.removeTask(i)
   }
 
-  openModal(task: TaskModel){
+  openModal(task: Task){
     this.showModal = !this.showModal
     this.taskInfo = task
   }
@@ -113,6 +81,12 @@ export class TaskComponent {
 
   showMessage(){
     return 'Teste de Titulo'
+  }
+
+  cleanForm(form: NgForm) {
+    this.getAllTasks();
+    form.resetForm();
+    this.task = {} as Task;
   }
 
 }

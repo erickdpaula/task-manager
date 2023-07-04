@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ModalComponent } from './components/modal/modal.component';
   imports: [
     BrowserModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
