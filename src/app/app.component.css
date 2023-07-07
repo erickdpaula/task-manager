@@ -1,8 +1,11 @@
 
 .container
 {
-  display: flex;
   box-sizing: border-box;
   height: 100vh;
   padding: 10px;
+  overflow: scroll;
+  position: relative;
+  display: block;
+  /* flex-direction:column; */
 }

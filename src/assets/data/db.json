@@ -20,10 +20,27 @@
     },
     {
       "id": 1,
-      "content": "Teste",
+      "content": "Conectar API fake",
       "completed": false,
       "deleted": false,
-      "subTasks": [],
+      "subTasks": [
+        {
+          "content": "Criar metodo GET",
+          "completed": false
+        },
+        {
+          "content": "Criar metodo POST",
+          "completed": false
+        },
+        {
+          "content": "Criar metodo PUT",
+          "completed": false
+        },
+        {
+          "content": "Criar metodo DELETE",
+          "completed": false
+        }
+      ],
       "startDate": "03/07/2023",
       "endDate": ""
     }

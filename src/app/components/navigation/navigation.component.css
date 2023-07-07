@@ -1,15 +1,17 @@
 .nav-container{
-  background: var(--pink);
+  background: var(--blue);
   height: 50px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
+  border-top: 2px solid var(--dark-blue);
 }
 
 fa-icon{
   margin: 0 50px;
-  color: var(--dark-blue);
+  color: var(--white);
   font-size: 25px;
   cursor: pointer;
 }

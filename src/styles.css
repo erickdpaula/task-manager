@@ -1,10 +1,8 @@
 :root{
-    --blue: #96D7EB;
-    --dark-blue: #7697B3;
-    --darker-blue: #3e5e7a;
-    --green: #DFFFD8;
-    --pink: #ffb5cb;
-    --grey: #666;
+    --dark-blue: #25233B;
+    --white: #dbd5ff;
+    --green: #00E24A;
+    --blue: #393359;
 }
 
 body{
@@ -20,6 +18,6 @@ body{
 }
 
 fa-icon{
-  color: var(--dark-blue);
+  color: var(--white);
   cursor: pointer;
 }

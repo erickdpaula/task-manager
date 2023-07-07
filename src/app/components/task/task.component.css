@@ -9,11 +9,11 @@
   flex-direction: column;
   justify-content: space-between;
   width: 500px;
-  height: 100%;
-  background: var(--blue);
+  height: calc(100vh - 70px);
+  background: var(--dark-blue);
   padding-top: 20px;
   overflow-y: scroll;
-  overflow-x:hidden;
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -30,10 +30,10 @@
   height: 40px;
   padding-left: 10px;
 
-  color: var(--darker-blue);
-  border: 3px solid var(--dark-blue);
+  color: var(--white);
+  border: 3px solid var(--blue);
   border-radius: 7px;
-  background: rgba(255,255,255,0.3);
+  background: #ffffff10;
   outline: none;
 }
 .input-button{
@@ -43,7 +43,7 @@
   border: none;
 }
 .input-button fa-icon{
-  color: var(--darker-blue);
+  color: var(--green);
   font-size: 35px;
 }
 .tasks-container{
@@ -59,13 +59,13 @@
   padding: 0 10px;
   margin: 10px 0;
 
-  background: var(--pink);
+  background: var(--blue);
   border-radius: 5px;
   text-decoration:none;
   list-style: none;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
 
-  color: var(--grey);
+  color: var(--white);
 
   font-size: 17px;
 }
@@ -76,39 +76,35 @@
 }
 
 input[type=checkbox]{
-  appearance: none;
   width: 22px;
   height: 22px;
-  border: 2px solid #999;
   border-radius: 5px;
 }
 input[type=checkbox]:checked{
   background: var(--green);
 }
-@keyframes slideOut{
+@keyframes vanish{
   0%{
-    transform: translateX(0);
+    opacity: 100%;
   }
   100%{
-    transform: translateX(200%);
+    opacity: 0;
   }
 }
 .completed{
-  color: #888;
-  animation: 1s slideOut ease-out;
+  animation: 0.3s vanish ease-out;
 }
 .completed.check{
-  color: rgb(46, 187, 46);
+  background-color: var(--green);
 }
 .deleted{
-  animation: 1s slideOut ease-out;
+  /* animation: 1s slideOut ease-out; */
 }
 .check{
-  color: #ddd;
+  color: #666;
   font-size: 15px;
-  border: 2px solid grey;
   border-radius: 5px;
-  background: #ddd;
+  background: #ffffff10;
   padding: 0 5px;
   margin-right: 10px;
 }

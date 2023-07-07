@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/Task';
 import { faTrash, faCheck, faSquarePlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { TaskService } from 'src/app/services/task.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-task',
@@ -23,24 +22,42 @@ export class TaskComponent implements OnInit{
 
   content:string = ''
 
-  taskList:Task[]
-  task = {} as Task
+  taskList:Task[] = [
+    {
+      id: 0,
+      content: 'Estudar Angular',
+      completed: false,
+      deleted: false,
+      subTasks: [
+        {
+          content: 'Diretivas',
+          completed: false
+        },
+        {
+          content: 'Routes',
+          completed: false
+        }
+      ],
+      startDate: '06/07/2023',
+      endDate: ''
+    }
+  ]
 
   constructor(private taskService: TaskService){}
 
   ngOnInit() {
-    this.getAllTasks()
+    // this.getAllTasks()
   }
 
-  getAllTasks(){
-    this.taskService.getAllTasks().subscribe((tasks: Task[]) => {
-      this.taskList = tasks
-    })
-  }
-  saveTask(task: Task) {
-    this.taskService.saveTask(task)
-    console.log(task)
-  }
+  // getAllTasks(){
+  //   this.taskService.getAllTasks().subscribe((tasks: Task[]) => {
+  //     this.taskList = tasks
+  //   })
+  // }
+  // saveTask(task: Task) {
+  //   this.taskService.saveTask(task)
+  //   console.log(task)
+  // }
 
   addTask(){
     let newTask = new Task()
@@ -51,8 +68,9 @@ export class TaskComponent implements OnInit{
     newTask.subTasks = []
     newTask.startDate = this.currentDate
     newTask.endDate = ""
-    this.saveTask(newTask)
-    // this.taskList.push(newTask)
+    // this.saveTask(newTask)
+    this.taskList.push(newTask)
+    console.log(newTask)
 
     this.content = ''
   }
@@ -61,7 +79,7 @@ export class TaskComponent implements OnInit{
     this.taskList[i].deleted = !this.taskList[i].deleted
     setTimeout(() => {
       this.taskList.splice(i, 1)
-    }, 500)
+    }, 200)
   }
 
 
@@ -77,16 +95,6 @@ export class TaskComponent implements OnInit{
 
   closeModal($event:any){
     this.showModal = !this.showModal
-  }
-
-  showMessage(){
-    return 'Teste de Titulo'
-  }
-
-  cleanForm(form: NgForm) {
-    this.getAllTasks();
-    form.resetForm();
-    this.task = {} as Task;
   }
 
 }
