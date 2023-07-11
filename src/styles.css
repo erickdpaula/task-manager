@@ -1,8 +1,12 @@
 :root{
     --dark-blue: #25233B;
     --white: #dbd5ff;
-    --green: #00E24A;
+    --green: #39da8a;
     --blue: #393359;
+    --red: #ff5d5b;
+    --orange: #fdac41;
+    --cyan: #74dfe5;
+    --purple: #ac5cd9;
 }
 
 body{
