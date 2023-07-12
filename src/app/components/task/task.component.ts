@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/Task';
 import { faTrash, faCheck, faSquarePlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { TaskService } from 'src/app/services/task.service';
+import { isEmpty } from 'rxjs';
 
 @Component({
   selector: 'app-task',
@@ -21,6 +22,9 @@ export class TaskComponent implements OnInit{
   currentDate: string = this.date.toLocaleDateString()
 
   content:string = ''
+
+  emptyMessage: string = 'Digite uma tarefa ...'
+  isEmptyInput: boolean = false
 
   taskList:Task[] = [
     {
@@ -60,17 +64,23 @@ export class TaskComponent implements OnInit{
   // }
 
   addTask(){
-    let newTask = new Task()
-    newTask.id = this.taskList.length
-    newTask.content = this.content
-    newTask.completed = false
-    newTask.deleted = false
-    newTask.subTasks = []
-    newTask.startDate = this.currentDate
-    newTask.endDate = ""
-    // this.saveTask(newTask)
-    this.taskList.push(newTask)
-    console.log(newTask)
+    if(this.content == ''){
+      this.isEmptyInput = true
+      setTimeout(() => {
+        this.isEmptyInput = false
+      }, 1000)
+    }else{
+      let newTask = new Task()
+      newTask.id = this.taskList.length
+      newTask.content = this.content
+      newTask.completed = false
+      newTask.deleted = false
+      newTask.subTasks = []
+      newTask.startDate = this.currentDate
+      newTask.endDate = ""
+      this.taskList.push(newTask)
+      console.log(newTask)
+    }
 
     this.content = ''
   }

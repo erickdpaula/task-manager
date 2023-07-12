@@ -36,6 +36,71 @@
   background: #ffffff10;
   outline: none;
 }
+.inputEmpty{
+  animation: 1.5s error ease-out;
+}
+
+@keyframes shakeError{
+  20%{
+    transform: translateX(20px);
+  }
+  40%{
+    transform: translateX(-20px);
+  }
+  60%{
+    transform: translateX(10px);
+  }
+  80%{
+    transform: translateX(-10px);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+@keyframes resetBorder{
+  from{
+    border: 3px solid var(--red);
+    color: rgb(255, 103, 103);
+  }
+  to{
+    color: var(--white);
+    border: 3px solid var(--blue);
+  }
+}
+@keyframes vanish{
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes error{
+  0%{
+    border: 3px solid var(--red);
+    color: rgb(255, 103, 103);
+  }
+  10%{
+    transform: translateX(20px);
+  }
+  20%{
+    transform: translateX(-20px);
+  }
+  30%{
+    transform: translateX(10px);
+  }
+  40%{
+    transform: translateX(-10px);
+  }
+  50%{
+    transform: translateX(0);
+  }
+  90%{
+    color: var(--white);
+    border: 3px solid var(--blue);
+  }
+}
+
 .input-button{
   margin: 0;
   padding: 0;
@@ -83,14 +148,7 @@ input[type=checkbox]{
 input[type=checkbox]:checked{
   background: var(--green);
 }
-@keyframes vanish{
-  0%{
-    opacity: 100%;
-  }
-  100%{
-    opacity: 0;
-  }
-}
+
 .completed{
   animation: 0.3s vanish ease-out;
 }
