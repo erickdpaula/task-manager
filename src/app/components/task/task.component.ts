@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/Task';
 import { faTrash, faCheck, faSquarePlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { TaskService } from 'src/app/services/task.service';
-import { isEmpty } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-task',
@@ -25,43 +25,17 @@ export class TaskComponent implements OnInit{
 
   emptyMessage: string = 'Digite uma tarefa ...'
   isEmptyInput: boolean = false
+  taskList:Task[]
 
-  taskList:Task[] = [
-    {
-      id: 0,
-      content: 'Estudar Angular',
-      completed: false,
-      deleted: false,
-      subTasks: [
-        {
-          content: 'Diretivas',
-          completed: false
-        },
-        {
-          content: 'Routes',
-          completed: false
-        }
-      ],
-      startDate: '06/07/2023',
-      endDate: ''
-    }
-  ]
+  list:Observable<Task[]>
 
-  constructor(private taskService: TaskService){}
+  constructor(private taskService: TaskService){ }
 
-  ngOnInit() {
-    // this.getAllTasks()
+  ngOnInit(){
+    this.taskService.taskList().subscribe((lista:Task[]) => {
+      this.taskList = lista
+    })
   }
-
-  // getAllTasks(){
-  //   this.taskService.getAllTasks().subscribe((tasks: Task[]) => {
-  //     this.taskList = tasks
-  //   })
-  // }
-  // saveTask(task: Task) {
-  //   this.taskService.saveTask(task)
-  //   console.log(task)
-  // }
 
   addTask(){
     if(this.content == ''){

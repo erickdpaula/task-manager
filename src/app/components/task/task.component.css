@@ -156,7 +156,7 @@ input[type=checkbox]:checked{
   background-color: var(--green);
 }
 .deleted{
-  /* animation: 1s slideOut ease-out; */
+  animation: 1s vanish ease-out;
 }
 .check{
   color: #666;
