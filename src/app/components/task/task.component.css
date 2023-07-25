@@ -129,6 +129,7 @@
   text-decoration:none;
   list-style: none;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 
   color: var(--white);
 
@@ -139,6 +140,14 @@
   z-index: 10;
   box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.1);
 }
+/* .task::before{
+  content: '';
+  margin-left: -10px;
+  padding: 0;
+  width: 5px;
+  height: 100%;
+  background-color: aqua;
+} */
 
 input[type=checkbox]{
   width: 22px;

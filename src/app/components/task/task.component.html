@@ -1,15 +1,31 @@
 <div class="container">
   <div class="input-container">
-    <input class="input-text" [ngClass]="{'inputEmpty': isEmptyInput}" name="content" [(ngModel)]="content" placeholder={{emptyMessage}} >
-    <button class="input-button" (click)="addTask()"><fa-icon [icon]="faPlus"></fa-icon></button>
+    <input class="input-text"
+      [ngClass]="{'inputEmpty': isEmptyInput}"
+      name="content" [(ngModel)]="content"
+      placeholder={{emptyMessage}}
+      (keydown.enter) = "addTask()"
+    >
+    <button class="input-button" (click)="addTask()"><fa-icon [icon]="faPlus"> </fa-icon> </button>
+
   </div>
 
   <div class="tasks-container">
 
-    <div class="task" [ngClass]="{'completed': task.completed, 'deleted': task.deleted}" *ngFor="let task of taskList, let i = index">
+    <div class="task"
+      [ngClass]="{'completed': task.completed, 'deleted': task.deleted}"
+      *ngFor="let task of taskList, let i = index"
+      (click) = "openModal(task)"
+    >
 
-      <fa-icon class="check" (click)="isCompleted(i)" [ngClass]="{'completed': task.completed}" [icon]="faCheck">{{task.content}}</fa-icon>
+      <fa-icon class="check"
+        (click)="isCompleted(i)"
+        [ngClass]="{'completed': task.completed}"
+        [icon]="faCheck"
+      > {{task.content}} </fa-icon>
+
       <span>{{task.content}}</span>
+
       <div>
         <fa-icon (click) = "openModal(task)" [icon] = "faInfo"></fa-icon>
         <fa-icon (click) = "removeTask(i)" [icon] = "faTrash" ></fa-icon>

@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
 })
 export class TaskComponent implements OnInit{
 
+  yellow = 'yellow'
+
   faTrash = faTrash
   faCheck = faCheck
   faPlus = faSquarePlus
