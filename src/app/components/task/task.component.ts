@@ -25,16 +25,60 @@ export class TaskComponent implements OnInit{
 
   emptyMessage: string = 'Digite uma tarefa ...'
   isEmptyInput: boolean = false
-  taskList:Task[]
 
-  list:Observable<Task[]>
+  taskList:Task[] = [
+    {
+      id: 0,
+      content: "Estudar Angular",
+      completed: false,
+      deleted: false,
+      subTasks: [
+        {
+          content: "Javascript Basico",
+          completed: false
+        },
+        {
+          content: "Diretivas Angular",
+          completed: false
+        }
+      ],
+      startDate: "26/04/2023",
+      endDate: ""
+    },
+    {
+      id: 1,
+      content: "Conectar API",
+      completed: false,
+      deleted: false,
+      subTasks: [
+        {
+          content: "Criar metodo GET",
+          completed: false
+        },
+        {
+          content: "Criar metodo POST",
+          completed: false
+        },
+        {
+          content: "Criar metodo PUT",
+          completed: false
+        },
+        {
+          content: "Criar metodo DELETE",
+          completed: false
+        }
+      ],
+      startDate: "03/07/2023",
+      endDate: ""
+    }
+  ]
 
   constructor(private taskService: TaskService){ }
 
   ngOnInit(){
-    this.taskService.taskList().subscribe((lista:Task[]) => {
-      this.taskList = lista
-    })
+    // this.taskService.findAllTasks().subscribe(lista => {
+    //   this.taskList = lista
+    // })
   }
 
   addTask(){
@@ -53,6 +97,8 @@ export class TaskComponent implements OnInit{
       newTask.startDate = this.currentDate
       newTask.endDate = ""
       this.taskList.push(newTask)
+      // this.taskService.postTask(newTask)
+      //   .subscribe(response => console.log(response))
       console.log(newTask)
     }
 
