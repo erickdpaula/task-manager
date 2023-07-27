@@ -2,8 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/Task';
 import { faTrash, faCheck, faSquarePlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
-import { TaskService } from 'src/app/services/task.service';
-import { Observable } from 'rxjs';
+import { TaskService } from 'src/app/services/task-service.service';
 
 @Component({
   selector: 'app-task',
@@ -28,59 +27,59 @@ export class TaskComponent implements OnInit{
   emptyMessage: string = 'Digite uma tarefa ...'
   isEmptyInput: boolean = false
 
-  taskList:Task[] = [
-    {
-      id: 0,
-      content: "Estudar Angular",
-      completed: false,
-      deleted: false,
-      subTasks: [
-        {
-          content: "Javascript Basico",
-          completed: false
-        },
-        {
-          content: "Diretivas Angular",
-          completed: false
-        }
-      ],
-      startDate: "26/04/2023",
-      endDate: ""
-    },
-    {
-      id: 1,
-      content: "Conectar API",
-      completed: false,
-      deleted: false,
-      subTasks: [
-        {
-          content: "Criar metodo GET",
-          completed: false
-        },
-        {
-          content: "Criar metodo POST",
-          completed: false
-        },
-        {
-          content: "Criar metodo PUT",
-          completed: false
-        },
-        {
-          content: "Criar metodo DELETE",
-          completed: false
-        }
-      ],
-      startDate: "03/07/2023",
-      endDate: ""
-    }
-  ]
+  // taskList:Task[] = [
+  //   {
+  //     id: 0,
+  //     content: "Estudar Angular",
+  //     completed: false,
+  //     deleted: false,
+  //     subTasks: [
+  //       {
+  //         content: "Javascript Basico",
+  //         completed: false
+  //       },
+  //       {
+  //         content: "Diretivas Angular",
+  //         completed: false
+  //       }
+  //     ],
+  //     startDate: "26/04/2023",
+  //     endDate: ""
+  //   },
+  //   {
+  //     id: 1,
+  //     content: "Conectar API",
+  //     completed: false,
+  //     deleted: false,
+  //     subTasks: [
+  //       {
+  //         content: "Criar metodo GET",
+  //         completed: false
+  //       },
+  //       {
+  //         content: "Criar metodo POST",
+  //         completed: false
+  //       },
+  //       {
+  //         content: "Criar metodo PUT",
+  //         completed: false
+  //       },
+  //       {
+  //         content: "Criar metodo DELETE",
+  //         completed: false
+  //       }
+  //     ],
+  //     startDate: "03/07/2023",
+  //     endDate: ""
+  //   }
+  // ]
+
+  taskList:Task[] = []
 
   constructor(private taskService: TaskService){ }
 
   ngOnInit(){
-    // this.taskService.findAllTasks().subscribe(lista => {
-    //   this.taskList = lista
-    // })
+    this.getTasks()
   }
 
   addTask(){
@@ -114,7 +113,6 @@ export class TaskComponent implements OnInit{
     }, 200)
   }
 
-
   isCompleted(i:number){
     this.taskList[i].completed = !this.taskList[i].completed
     this.removeTask(i)
@@ -127,6 +125,13 @@ export class TaskComponent implements OnInit{
 
   closeModal($event:any){
     this.showModal = !this.showModal
+  }
+
+  getTasks(): void{
+    this.taskService.getTasks().subscribe((taskList) => {
+      console.log(taskList)
+      this.taskList = taskList
+    })
   }
 
 }

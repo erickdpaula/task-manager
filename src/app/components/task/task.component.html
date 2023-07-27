@@ -15,7 +15,6 @@
     <div class="task"
       [ngClass]="{'completed': task.completed, 'deleted': task.deleted}"
       *ngFor="let task of taskList, let i = index"
-      (click) = "openModal(task)"
     >
 
       <fa-icon class="check"
